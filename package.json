@@ -1,0 +1,26 @@
+{
+  "name": "simple-timer",
+  "version": "0.0.1",
+  "description": "Simple Timer using React",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "Timer",
+    "React"
+  ],
+  "author": "Norio Suzuki <norio.suzuki@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "browserify": "^9.0.8",
+    "gulp": "^3.8.11",
+    "http-server": "^0.8.0",
+    "react-tools": "^0.13.1",
+    "reactify": "^1.1.0",
+    "vinyl-source-stream": "^1.1.0"
+  },
+  "dependencies": {
+    "react": "^0.13.1"
+  }
+}
