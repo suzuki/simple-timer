@@ -17,4 +17,8 @@ gulp.task('browserify', function() {
          .pipe(gulp.dest('./build'));
 });
 
+gulp.task('watch', function() {
+  gulp.watch('./src/**/*.jsx', ['browserify']);
+});
+
 gulp.task('default', ['browserify']);
