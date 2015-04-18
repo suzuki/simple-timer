@@ -4,7 +4,7 @@
 var React = require('react');
 var SetIntervalMixin = require('./components/SetIntervalMixin.jsx');
 var StartButton = require('./components/StartButton.jsx');
-var StopButton = require('./components/StartButton.jsx');
+var StopButton = require('./components/StopButton.jsx');
 
 var Timer = React.createClass({
   mixins: [SetIntervalMixin],
