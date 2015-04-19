@@ -40,7 +40,13 @@ gulp.task('jest', function() {
 
 
 gulp.task('watch', function() {
-  gulp.watch('./src/**/*.jsx', ['jest', 'browserify']);
+  gulp.watch([
+    './src/**/*.jsx',
+    './src/**/*.js'
+  ], [
+    'jest',
+    'browserify'
+  ]);
 });
 
 gulp.task('default', ['browserify']);
