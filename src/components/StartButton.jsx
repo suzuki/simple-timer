@@ -1,11 +1,19 @@
 var React = require('react');
 
 var StartButton = React.createClass({
+  getDefaultProps: function() {
+    return {
+      date: new Date()
+    };
+  },
+  getInitialState: function() {
+    return {
+      startEpoch: this.props.date.getTime()
+    };
+  },
   handleClick: function(e) {
     e.preventDefault();
-
-    var startEpoch = (new Date()).getTime();
-    this.props.onStartClick(startEpoch);
+    this.props.onStartClick(this.state.startEpoch);
 
     return;
   },
