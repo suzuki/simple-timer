@@ -2,81 +2,11 @@
  * simple-timer.jsx
  */
 var React = require('react');
-var SetIntervalMixin = require('./components/SetIntervalMixin.jsx');
 var StartButton = require('./components/StartButton.jsx');
 var StopButton = require('./components/StopButton.jsx');
-
-var Timer = React.createClass({
-  mixins: [SetIntervalMixin],
-  getInitialState: function() {
-    var epoch = (new Date()).getTime();
-    return {
-      epoch: epoch
-    };
-  },
-  componentDidMount: function() {
-    this.setInterval(this.tick, 1000);
-  },
-  tick: function() {
-    var newEpoch = this.state.epoch + 1000;
-    this.setState({epoch: newEpoch});
-  },
-  render: function() {
-    var formatDate = function(d) {
-      var year   = d.getFullYear();
-      var month  = ('0' + d.getMonth()).slice(-2);
-      var day    = ('0' + d.getDate()).slice(-2);
-      var hour   = ('0' + d.getHours()).slice(-2);
-      var minute = ('0' + d.getMinutes()).slice(-2);
-      var second = ('0' + d.getSeconds()).slice(-2);
-
-      return year + '-' + month + '-' + day + ' ' + hour + ':' + minute + ':' + second;
-    };
-
-    var d = new Date(this.state.epoch);
-    var dateString = formatDate(d);
-
-    return (
-        <div className="timer">
-          <h2>{dateString}</h2>
-	</div>
-    );
-  }
-});
-
-var RecentBox = React.createClass({
-  render: function() {
-    return (
-      <div>
-        <h4>Recent</h4>
-        <span>Start: {this.props.recent.start}</span>
-        |
-        <span>Stop: {this.props.recent.stop}</span>
-      </div>
-    );
-  }
-});
-
-var HistoryBox = React.createClass({
-  render: function() {
-    var historiesRender = this.props.histories.map(function(history) {
-      return (
-        <div>
-          <span>Start: {history.start}</span>
-          |
-          <span>Stop: {history.stop}</span>
-        </div>
-      );
-    });
-
-    return (
-      <div className="historyBox">
-        <h4>Histories</h4>
-        {historiesRender}
-      </div>
-    );
-  }
-});
+var RecentBox = require('./components/RecentBox.jsx');
+var HistoryBox = require('./components/HistoryBox.jsx');
+var Timer = require('./components/Timer.jsx');
 
 var TimerBox = React.createClass({
   getInitialProps: function() {
