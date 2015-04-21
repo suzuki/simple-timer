@@ -10,9 +10,12 @@ var HistoryBox = React.createClass({
     };
   },
   render: function() {
-    var historiesRender = this.props.histories.map(function(history) {
+    var counter = 0;
+    var histories = this.props.histories;
+
+    var historiesRender = this.props.histories.reverse().map(function(history) {
       return (
-        <div>
+        <div key={counter++}>
           <span>Start: {history.start}</span>
           |
           <span>Stop: {history.stop}</span>

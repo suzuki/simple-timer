@@ -22,8 +22,6 @@ describe('HistoryBox', function() {
     expect(this.historyBox.getDOMNode().textContent).toContain('Histories');
   });
 
-  // TODO: fix warning
-  //       Each child in an array or iterator should have a unique "key" prop
   it('HistoryBox has start and stop value', function() {
     var node = this.historyBox.getDOMNode();
 
