@@ -15,12 +15,17 @@ describe('StopButton', function() {
     this.time = 1429453037035;
     this.mockCallback = jest.genMockFunction();
 
-    this.mockDate = {
-      getTime: jest.genMockFunction().mockReturnValue(this.time)
-    }
+    var self = this;
+    this.MockDate = function() {
+      return {
+        getTime: function() {
+          return self.time;
+        }
+      };
+    };
 
     this.stopButton = TestUtils.renderIntoDocument(
-      <StopButton onStopClick={this.mockCallback} date={this.mockDate} />
+      <StopButton onStopClick={this.mockCallback} DateObject={this.MockDate} />
     );
   });
 

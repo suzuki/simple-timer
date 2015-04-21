@@ -16,15 +16,19 @@ describe('StartButton', function() {
     this.time = 1429453037035;
     this.mockCallback = jest.genMockFunction();
 
-    this.mockDate = {
-      getTime: jest.genMockFunction().mockReturnValue(this.time)
+    var self = this;
+    this.MockDate = function() {
+      return {
+        getTime: function() {
+          return self.time;
+        }
+      };
     };
 
     this.startButton = TestUtils.renderIntoDocument(
-      <StartButton onStartClick={this.mockCallback} date={this.mockDate} />
+      <StartButton onStartClick={this.mockCallback} DateObject={this.MockDate} />
     );
   });
-
 
   it ('StartButton has Start text', function() {
     expect(this.startButton.getDOMNode().textContent).toEqual('Start');

@@ -3,17 +3,20 @@ var React = require('react');
 var StopButton = React.createClass({
   getDefaultProps: function() {
     return {
-      date: new Date()
+      DateObject: Date
     };
   },
   getInitialState: function() {
     return {
-      stopEpoch: this.props.date.getTime()
+      stopEpoch: (new this.props.DateObject()).getTime()
     };
   },
   handleClick: function(e) {
     e.preventDefault();
-    this.props.onStopClick(this.state.stopEpoch);
+
+    var newEpoch = (new this.props.DateObject()).getTime();
+    this.setState({stopEpoch: newEpoch});
+    this.props.onStopClick(newEpoch);
 
     return;
   },
