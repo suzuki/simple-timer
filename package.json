@@ -18,8 +18,10 @@
   "license": "MIT",
   "devDependencies": {
     "browserify": "^9.0.8",
+    "colors": "^1.0.3",
     "gulp": "^3.8.11",
     "gulp-jest": "^0.4.0",
+    "gulp-plumber": "^1.0.0",
     "harmonize": "^1.4.1",
     "http-server": "^0.8.0",
     "jest-cli": "^0.4.0",
