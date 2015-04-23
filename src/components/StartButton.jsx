@@ -1,20 +1,19 @@
 var React = require('react');
+var Clock = require('../Clock.js');
 
 var StartButton = React.createClass({
   getDefaultProps: function() {
-    return {
-      DateObject: Date
-    };
+    clock: new Clock()
   },
   getInitialState: function() {
     return {
-      startEpoch: (new this.props.DateObject()).getTime()
+      startEpoch: this.props.clock.getTime()
     };
   },
   handleClick: function(e) {
     e.preventDefault();
 
-    var newEpoch = (new this.props.DateObject()).getTime();
+    var newEpoch = this.props.clock.getTime();
     this.setState({startEpoch: newEpoch});
     this.props.onStartClick(newEpoch);
 

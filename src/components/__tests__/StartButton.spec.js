@@ -11,22 +11,15 @@ var Simulate = TestUtils.Simulate;
 var StartButton = require('../StartButton.jsx');
 
 describe('StartButton', function() {
-
   beforeEach(function() {
     this.time = 1429453037035;
     this.mockCallback = jest.genMockFunction();
-
-    var self = this;
-    this.MockDate = function() {
-      return {
-        getTime: function() {
-          return self.time;
-        }
-      };
+    var mockClock = {
+        getTime: jest.genMockFunction().mockReturnValue(this.time)
     };
 
     this.startButton = TestUtils.renderIntoDocument(
-      <StartButton onStartClick={this.mockCallback} DateObject={this.MockDate} />
+      <StartButton onStartClick={this.mockCallback} clock={mockClock} />
     );
   });
 

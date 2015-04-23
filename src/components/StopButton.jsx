@@ -1,20 +1,21 @@
 var React = require('react');
+var Clock = require('../Clock.js');
 
 var StopButton = React.createClass({
   getDefaultProps: function() {
     return {
-      DateObject: Date
+      clock: new Clock()
     };
   },
   getInitialState: function() {
     return {
-      stopEpoch: (new this.props.DateObject()).getTime()
+      stopEpoch: this.props.clock.getTime()
     };
   },
   handleClick: function(e) {
     e.preventDefault();
 
-    var newEpoch = (new this.props.DateObject()).getTime();
+    var newEpoch = this.props.clock.getTime();
     this.setState({stopEpoch: newEpoch});
     this.props.onStopClick(newEpoch);
 
